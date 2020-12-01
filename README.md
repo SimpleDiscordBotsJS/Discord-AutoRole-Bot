@@ -8,7 +8,7 @@ Advantages:
 
 # Instructions
 
-## Discord Ище:
+## Discord Bot:
  - [Create application](https://discord.com/developers/applications)
  - Add a bot to it (Bot section)
  - In the same place where the bot was added, enable "PRESENCE INTENT" and "SERVER MEMBERS INTENT" (Without this, the bot will not work)
