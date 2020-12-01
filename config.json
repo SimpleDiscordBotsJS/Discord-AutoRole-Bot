@@ -1,0 +1,5 @@
+{
+    "BOT_TOKEN": "Enter_discord_bot_token",
+    "SERVER_ID": "Enter_server_id",
+    "ROLE_ID": "Enter_the_id_of_the_required_role"
+}
