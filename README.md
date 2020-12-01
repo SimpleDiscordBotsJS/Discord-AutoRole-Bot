@@ -26,7 +26,7 @@ Advantages:
  The bot token can be copied in the Bot section of [your application](https://discord.com/developers/applications)
  
  # Attention!
- To get the role and server IDs, you must enable [developer mode](https://discord.fandom.com/ru/wiki/Режим_разработчика)
+ To get the role and server IDs, you must enable developer mode
 
 ## To run locally, you need Node.JS
  - [Download Node.JS](https://nodejs.org/en/)
