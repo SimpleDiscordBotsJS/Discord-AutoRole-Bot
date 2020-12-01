@@ -9,7 +9,7 @@ client.on('ready', () => { //Бот запущен
 });
 
 client.on('guildMemberAdd', member => { //Пользователь зашёл на сервер
-    if(config.SERVER_ID == config.SERVER_ID) { //Проверка на нужный сервер
+    if(client.guilds.get(config.SERVER_ID)) { //Проверка на нужный сервер
         var role = member.guild.roles.get(config.ROLE_ID); //Получение роли (Можно заменить get на find, и тогда указать в скобках вместо config.ROLE_ID вот это: 'name', 'название роли')
         member.addRole(role); //Выдача роли
     }
