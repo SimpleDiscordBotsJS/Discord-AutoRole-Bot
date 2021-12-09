@@ -1,6 +1,9 @@
 const Discord = require("discord.js"); //Библиотека
 const config = require("./config.json"); //Загрузка конфига
-const client = new Discord.Client(); //Создание клиента
+const client = new Discord.Client({ intents: [
+    Discord.Intents.FLAGS.GUILDS,
+    Discord.Intents.FLAGS.GUILD_MEMBERS
+] }); //Создание клиента
 
 //===========================================================
 
@@ -9,9 +12,8 @@ client.on('ready', () => { //Бот запущен
 });
 
 client.on('guildMemberAdd', member => { //Пользователь зашёл на сервер
-    if(client.guilds.get(config.SERVER_ID)) { //Проверка на нужный сервер
-        var role = member.guild.roles.get(config.ROLE_ID); //Получение роли (Можно заменить get на find, и тогда указать в скобках вместо config.ROLE_ID вот это: 'name', 'название роли')
-        member.addRole(role); //Выдача роли
+    if(client.guilds.cache.get(config.SERVER_ID)) { //Проверка на нужный сервер
+        return member.roles.add(member.guild.roles.cache.get(config.ROLE_ID)); //Выдача роли
     }
 });
 

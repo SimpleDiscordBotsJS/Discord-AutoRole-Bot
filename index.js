@@ -1,6 +1,9 @@
 const Discord = require("discord.js"); //Library
 const config = require("./config.json"); //Loading config file
-const client = new Discord.Client(); //Client creation
+const client = new Discord.Client({ intents: [
+    Discord.Intents.FLAGS.GUILDS,
+    Discord.Intents.FLAGS.GUILD_MEMBERS
+] }); //Client creation
 
 //===========================================================
 
@@ -9,9 +12,8 @@ client.on('ready', () => { //Bot launched
 });
 
 client.on('guildMemberAdd', member => { //User join into the server
-    if(client.guilds.get(config.SERVER_ID)) { //Checking for the correct server
-        var role = member.guild.roles.get(config.ROLE_ID); //Getting a role (Can be replaced get on find, and then indicate in brackets instead ofconfig.ROLE_ID this: 'name', 'role_name')
-        member.addRole(role); //Issuing a role
+    if(client.guilds.cache.get(config.SERVER_ID)) { //Checking for the correct server
+        return member.roles.add(member.guild.roles.cache.get(config.ROLE_ID)); //Issuing a role
     }
 });
 
